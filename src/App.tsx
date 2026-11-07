@@ -134,7 +134,7 @@ export default function App() {
 
   return <main>
     <header className="app-header">
-      <a className="identity" href="/" aria-label="Mixer Plus practice desk"><span className="brand-icon"><i /><i /><i /></span><span>MIXER PLUS <small>PRACTICE DESK</small></span></a>
+      <a className="identity" href={import.meta.env.BASE_URL} aria-label="Mixer Plus practice desk"><span className="brand-icon"><i /><i /><i /></span><span>MIXER PLUS <small>PRACTICE DESK</small></span></a>
       <span className="simulation-tag"><span /> PERSONAL SIMULATOR</span>
       <nav aria-label="Practice tools"><button onClick={() => { move(0, 0); setPanel('sources'); }}>Sources</button><button onClick={() => { move(0, 0); setPanel('help'); }}>Help <span className="keycap">?</span></button><button onClick={() => press('reset')} title="Reset working settings; saved memories and media are kept">Reset</button></nav>
     </header>

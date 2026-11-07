@@ -13,6 +13,24 @@ npm.cmd run dev
 
 Open the printed local URL (normally http://127.0.0.1:5173). Click **Start practice** to enable audio. Video works before audio is enabled. Use **Help** for the control guide and **Expand monitors** to enlarge the LCD and see the PGM/AUX ports.
 
+## GitHub Pages
+
+Live app: **https://hollag.github.io/simulator-cinetreak-mixer-plus/**
+
+The [deployment workflow](.github/workflows/pages.yml) tests and builds the app, then deploys `dist/` on each push to `main`. It can also be run manually from the repository's Actions tab. GitHub Pages must use **GitHub Actions** as its publishing source under Settings → Pages.
+
+The workflow supplies `VITE_BASE_PATH` using GitHub's Pages metadata, so scripts, console artwork, favicon, and home link work under the repository URL. Local development defaults to `/`.
+
+To preview the Pages build locally in PowerShell:
+
+```powershell
+$env:VITE_BASE_PATH = '/simulator-cinetreak-mixer-plus/'
+npm.cmd run build
+npm.cmd run preview
+```
+
+Open the preview URL with `/simulator-cinetreak-mixer-plus/` appended. Remove the override with `Remove-Item Env:VITE_BASE_PATH` when finished. Media imports and saved memories remain in each visitor's browser; they are not uploaded to GitHub.
+
 ## Controls
 
 - **Top row: PGM. Bottom row: PVW.** Select a preview source, then CUT or AUTO. There is no T-bar.

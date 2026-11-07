@@ -27,7 +27,7 @@ export function Console({ state: s, screenRef, press, turn, mode, move, zoom, de
     return ({ mv: s.mv, cam: s.cam, pos: s.pos, menu: s.menu.open, audio: s.menu.open && s.menu.path[0] === 1 } as Record<string, boolean>)[id] ? id === 'pos' ? 'white flash' : 'white' : '';
   };
   return <div className="console-scroll"><div className={`console ${debug ? 'debug-layout' : ''}`} style={{ width: `${zoom}%`, maxWidth: `${zoom * 11}px`, '--key-brightness': ({ Low: .45, Medium: .7, High: 1 } as any)[s.params['system.keys'] as string] } as CSSProperties} data-testid="console">
-    <img src="/console.png" className="panel-photo" alt="CineTreak Mixer Plus console: program above preview" draggable={false} />
+    <img src={`${import.meta.env.BASE_URL}console.png`} className="panel-photo" alt="CineTreak Mixer Plus console: program above preview" draggable={false} />
     <canvas ref={screenRef} width={960} height={540} className="lcd" style={bounds(layout.screen)} aria-label="Mixer LCD" data-testid="lcd" />
     {Object.entries(layout.controls).filter(([id]) => !['mode', 'encoder', 'joystick'].includes(id)).map(([id, box]) => {
       const source = /^(pgm|pvw)([1-4])$/.exec(id), large = !!source || id === 'cut' || id === 'auto';
